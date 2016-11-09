@@ -7,7 +7,8 @@ class Message extends Component {
     return(
       <div className="message">
         {this.formatTime(message.timeStamp)}
-        <strong>{"Nickname "}</strong>
+        <strong>{message.user}</strong>
+        {': '}
         {message.text}
       </div>
     )
@@ -19,11 +20,11 @@ class Message extends Component {
     const minutes = dt.getMinutes();
     const seconds = dt.getSeconds();
 
-    const formatedTime = (time) => {
+    const formattedTime = (time) => {
      return (time < 10) ? `0${time}` : time;
     }
 
-    return `[${formatedTime(hours)}:${formatedTime(minutes)}:${formatedTime(seconds)}] `
+    return `[${formattedTime(hours)}:${formattedTime(minutes)}:${formattedTime(seconds)}] `
   }
 }
 
